@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { ProxyrmqModule } from './proxyrmq/proxyrmq.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import * as nodemailer from 'nodemailer';
+import { ClientProxySmartRanking } from './proxyrmq/client-proxy.provider';
+
 const configService = new ConfigService();
 
 @Module({
@@ -42,6 +44,6 @@ const configService = new ConfigService();
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ClientProxySmartRanking],
 })
 export class AppModule {}
